@@ -1,23 +1,18 @@
 package TestCases;
 
-import Pages.P01_HomePage;
-import Pages.P03_RegisterPage;
-import Pages.P04_ConfirmRegister;
+import Pages.*;
 import Utililties.DataUtility;
-import Utililties.LogUtility;
 import Utililties.classesUtility;
 import io.qameta.allure.Description;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import Listeners.IInvokedListener;
+import Listeners.ITestListener;
+import org.testng.annotations.*;
 
 import java.time.Duration;
 
 import static DriverFactory.DriverFactory.*;
-import static Utililties.classesUtility.convertEle;
-
+@Listeners({IInvokedListener.class , ITestListener.class })
 public class TC03_RegisterTest {
 
 
@@ -31,12 +26,15 @@ public class TC03_RegisterTest {
 
     @Description("click on register link")
     @Test
-    public void navigateToRegisterPage()
+    public void validRegisterTC()
     {
         new P01_HomePage(getDriver()).clickOnRegisterLink() ;
         Assert.assertEquals(classesUtility.assertOnUrl(getDriver()) , DataUtility.readPropertyFile("ENV","RegisterLink"));
 
-        new P03_RegisterPage(getDriver()).typingInfoRegistration(
+
+        // fill data to register
+        new P03_RegisterPage(getDriver())
+                 .typingInfoRegistration(
                 DataUtility.readJsonFile("registerData","firstName"),
                 DataUtility.readJsonFile("registerData","lastName"),
                 DataUtility.readJsonFile("registerData","email"),
@@ -44,9 +42,32 @@ public class TC03_RegisterTest {
                 DataUtility.readJsonFile("registerData","password"),
                 DataUtility.readJsonFile("registerData","cPasswrod")
                 );
-
+        //Assert on success of register
         Assert.assertEquals(new P04_ConfirmRegister(getDriver()).assertOnMegSuccess(),DataUtility.readPropertyFile("ENV","MessageSuccess"));
         Assert.assertEquals(classesUtility.assertOnUrl(getDriver()),DataUtility.readPropertyFile("ENV","RegisterSuccessLink"));
+
+         // navigate to home page
+          new P04_ConfirmRegister(getDriver()).navigateToAccountSetting() ;
+          new P05_AccountSetting(getDriver()).navigateToHomePage() ;
+
+          //assert on home page  URL
+          Assert.assertEquals(classesUtility.assertOnUrl(getDriver()),DataUtility.readPropertyFile("ENV","HomePageUrl"));
+
+    }
+
+    @Test(dependsOnMethods = "validRegisterTC")
+    public void logOutTC()
+    {
+        new P01_HomePage(getDriver())
+                .clickOnLogOutLink();
+
+        //Assert on logout Url
+        Assert.assertEquals(classesUtility.assertOnUrl(getDriver()),DataUtility.readPropertyFile("ENV","LogOutLink"));
+        Assert.assertEquals(new P06_LogOutPage(getDriver()).assertOnLogOutMeg(),DataUtility.readPropertyFile("ENV","LogOutMessage"));
+
+        // go to home page
+        new P06_LogOutPage(getDriver()).clickOnContinueBtn() ;
+        Assert.assertEquals(classesUtility.assertOnUrl(getDriver()),DataUtility.readPropertyFile("ENV","HomePageUrl"));
     }
 
 
@@ -56,7 +77,7 @@ public class TC03_RegisterTest {
 
 
 
-    @AfterMethod
+    @AfterClass
     public void tearDown()
     {
         tearDownDriver();

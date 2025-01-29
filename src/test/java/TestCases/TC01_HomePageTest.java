@@ -37,7 +37,7 @@ public class TC01_HomePageTest {
     @Test
     public void navigateToLoginPage()
     {
-        new P01_HomePage(getDriver()).clickOnloginLink() ;
+        new P01_HomePage(getDriver()).clickOneLoginLink() ;
         Assert.assertEquals(classesUtility.assertOnUrl(getDriver()) , DataUtility.readPropertyFile("ENV","LoginLink"));
     }
 

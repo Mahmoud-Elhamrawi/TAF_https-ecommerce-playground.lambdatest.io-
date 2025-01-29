@@ -16,10 +16,13 @@ public class P01_HomePage {
     }
     //locators
      private final By myAccountBtn_DropDown = By.xpath("(//a[contains(@class,'dropdown-toggle')])[3]");
+
      private final By register_link = By.xpath("(//ul[contains(@class,'mz-sub-menu-96')] /li /a)[2]");
      private final By login_link = By.xpath("(//ul[contains(@class,'mz-sub-menu-96')] /li /a)[1]");
+     private final By logOut_link = By.xpath("(//ul[contains(@class,'mz-sub-menu-96')] /li /a)[6]");
 
 
+     //Actions
       public P03_RegisterPage clickOnRegisterLink()
       {
           new Actions(driver).moveToElement(convertEle(driver,myAccountBtn_DropDown)).click(convertEle(driver,register_link)).perform();
@@ -27,7 +30,7 @@ public class P01_HomePage {
       }
 
 
-    public P02_LoginPage clickOnloginLink()
+    public P02_LoginPage clickOneLoginLink()
     {
         new Actions(driver).moveToElement(convertEle(driver,myAccountBtn_DropDown)).click(convertEle(driver,login_link)).perform();
         return new P02_LoginPage(driver);
@@ -35,6 +38,11 @@ public class P01_HomePage {
 
 
 
+    public P06_LogOutPage clickOnLogOutLink()
+    {
+        new Actions(driver).moveToElement(convertEle(driver,myAccountBtn_DropDown)).click(convertEle(driver,logOut_link)).perform();
+        return new P06_LogOutPage(driver);
+    }
 
 
 }
