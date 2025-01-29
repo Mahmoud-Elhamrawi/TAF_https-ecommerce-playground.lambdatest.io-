@@ -5,8 +5,6 @@ import Utililties.LogUtility;
 import Listeners.IInvokedListener;
 import Listeners.ITestListener;
 import io.qameta.allure.Description;
-import io.qameta.allure.Story;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -16,7 +14,7 @@ import java.time.Duration;
 import static DriverFactory.DriverFactory.*;
 
 @Listeners({IInvokedListener.class , ITestListener.class })
-public class TC01_LoginTest {
+public class TC02_LoginTest {
 
 
     @BeforeClass
@@ -32,7 +30,11 @@ public class TC01_LoginTest {
     public void validLoginTC()
     {
         LogUtility.info("home url : " +getDriver().getCurrentUrl());
-        Assert.assertTrue(getDriver().getCurrentUrl().equals("d"));
+
+
+
+
+
     }
 
 

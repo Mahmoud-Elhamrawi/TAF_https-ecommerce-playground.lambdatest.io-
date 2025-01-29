@@ -79,4 +79,10 @@ public class classesUtility {
     }
 
 
+    //TODO :: convert locator to Web Element
+    public static WebElement convertEle(WebDriver driver , By  locator)
+    {
+        return driver.findElement(locator);
+    }
+
 }
