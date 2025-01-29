@@ -1,5 +1,6 @@
 package Pages;
 
+import Utililties.classesUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,6 +13,8 @@ public class P04_ConfirmRegister {
     }
 
     private final By textConfirm_h1= By.xpath("//h1[contains(@class,'page-title')]");
+    private final By continue_btn = By.linkText("Continue");
+
 
 
     public String assertOnMegSuccess()
@@ -20,6 +23,11 @@ public class P04_ConfirmRegister {
     }
 
 
+    public P05_AccountSetting navigateToAccountSetting()
+    {
+        classesUtility.clickEle(driver,continue_btn);
+        return new P05_AccountSetting(driver);
+    }
 
 
 
