@@ -2,6 +2,7 @@ package TestCases;
 
 import Pages.P01_HomePage;
 import Utililties.DataUtility;
+import Utililties.classesUtility;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -27,7 +28,7 @@ public class TC01_HomePageTest {
     public void navigateToRegisterPage()
     {
         new P01_HomePage(getDriver()).clickOnRegisterLink() ;
-        Assert.assertEquals(new P01_HomePage(getDriver()).assertOnUrl() , DataUtility.readPropertyFile("ENV","RegisterLink"));
+        Assert.assertEquals(classesUtility.assertOnUrl(getDriver()) , DataUtility.readPropertyFile("ENV","RegisterLink"));
 
     }
 
@@ -37,7 +38,7 @@ public class TC01_HomePageTest {
     public void navigateToLoginPage()
     {
         new P01_HomePage(getDriver()).clickOnloginLink() ;
-        Assert.assertEquals(new P01_HomePage(getDriver()).assertOnUrl() , DataUtility.readPropertyFile("ENV","LoginLink"));
+        Assert.assertEquals(classesUtility.assertOnUrl(getDriver()) , DataUtility.readPropertyFile("ENV","LoginLink"));
     }
 
     @AfterMethod

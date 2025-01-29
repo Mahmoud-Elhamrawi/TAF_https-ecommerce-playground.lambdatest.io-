@@ -33,10 +33,7 @@ public class P01_HomePage {
         return new P02_LoginPage(driver);
     }
 
-      public String assertOnUrl()
-      {
-         return driver.getCurrentUrl();
-      }
+
 
 
 

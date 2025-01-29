@@ -22,8 +22,8 @@ public class classesUtility {
     //TODO :: Click on Element
     public static void clickEle(WebDriver driver, By locator)
     {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(locator));
-        driver.findElement(locator).clear();
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOfElementLocated(locator));
+        driver.findElement(locator).click();
     }
 
     //TODO :: Enter Text
@@ -85,4 +85,9 @@ public class classesUtility {
         return driver.findElement(locator);
     }
 
+    //TODO:: Assert On Url
+    public static String assertOnUrl(WebDriver driver)
+    {
+        return driver.getCurrentUrl();
+    }
 }
