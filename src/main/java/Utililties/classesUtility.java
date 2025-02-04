@@ -43,7 +43,7 @@ public class classesUtility {
     //TODO :: Scrolling
     public static void scrollToEle(WebDriver driver , By locator)
     {
-        ((JavascriptExecutor)driver).executeScript("arguments[0]scrollIntoView();",driver.findElement(locator));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",driver.findElement(locator));
     }
 
     //TODO::Take screenshot
