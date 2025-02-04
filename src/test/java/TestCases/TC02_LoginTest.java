@@ -1,10 +1,16 @@
 package TestCases;
 
+import Pages.P01_HomePage;
+import Pages.P02_LoginPage;
+import Pages.P04_ConfirmRegister;
+import Pages.P05_AccountSetting;
 import Utililties.DataUtility;
 import Utililties.LogUtility;
 import Listeners.IInvokedListener;
 import Listeners.ITestListener;
+import Utililties.classesUtility;
 import io.qameta.allure.Description;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -29,10 +35,21 @@ public class TC02_LoginTest {
     @Test
     public void validLoginTC()
     {
-        LogUtility.info("home url : " +getDriver().getCurrentUrl());
+        new P01_HomePage(getDriver())
+                .clickOneLoginLink() ;
+        Assert.assertEquals(classesUtility.assertOnUrl(getDriver()),DataUtility.readPropertyFile("ENV","LoginLink"));
 
+         new P02_LoginPage(getDriver())
+                 .validLoginTC(DataUtility.readJsonFile("loginData","email"),DataUtility.readJsonFile("loginData","password"));
 
+        //Assert on success of login
+        Assert.assertEquals(classesUtility.assertOnUrl(getDriver()),DataUtility.readPropertyFile("ENV","LoginSuccessLink"));
 
+        // navigate to home page
+        new P05_AccountSetting(getDriver()).navigateToHomePage() ;
+
+        //assert on home page  URL
+        Assert.assertEquals(classesUtility.assertOnUrl(getDriver()),DataUtility.readPropertyFile("ENV","HomePageUrl"));
 
 
     }
