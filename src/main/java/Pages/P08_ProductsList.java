@@ -28,6 +28,11 @@ public class P08_ProductsList {
     private final By notificationBox = By.id("notification-box-top");
     private final By closeNotification_Btn = By.cssSelector("button[data-dismiss=\"toast\"]");
     private final By cartIconNumber = By.xpath("//div[@id=\"entry_217825\"]//span[contains(@class,'cart-item-total')]");
+    private final By cartIcon  = By.cssSelector("div[id=\"entry_217825\"] a");
+    private final By cartBox = By.id("cart-total-drawer");
+    private final By editCartPage_Btn = By.cssSelector("div[id=\"entry_217850\"] a");
+
+    private final By priceProd = By.xpath("(//div[contains(@class,\"product-layout\")] )[1] //div[@class=\"price\"] //span");
 
     public String assertOnText()
     {
@@ -40,18 +45,14 @@ public class P08_ProductsList {
     }
 
 
-    public P09_AddToCartPage addToCart()
+    public P09_CartPage addToCart()
     {
         new Actions(driver).moveToElement(classesUtility.convertEle(driver,firstProd)).perform();
         classesUtility.clickEle(driver,addProdToCart_Btn);
 
-        return new P09_AddToCartPage(driver);
+        return new P09_CartPage(driver);
     }
 
-    public By notification()
-    {
-        return notificationBox ;
-    }
 
     public P08_ProductsList closeNotification()
     {
@@ -61,11 +62,24 @@ public class P08_ProductsList {
 
     public String getCartIconNumber()
     {
-        new WebDriverWait(getDriver(), Duration.ofSeconds(40)).until(ExpectedConditions.invisibilityOfElementLocated(notificationBox));
+        new WebDriverWait(getDriver(), Duration.ofSeconds(30)).until(ExpectedConditions.invisibilityOfElementLocated(notificationBox));
         return  classesUtility.getTextFromEle(driver,cartIconNumber) ;
     }
 
 
+    public P09_CartPage openCartPage()
+    {
+        classesUtility.clickEle(driver,cartIcon);
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(cartBox));
+        classesUtility.clickEle(driver,editCartPage_Btn);
+        return new P09_CartPage(driver);
+    }
+
+
+    public String getPriceProd()
+    {
+        return classesUtility.getTextFromEle(driver,priceProd).replace("$","");
+    }
 
 
 

@@ -40,6 +40,13 @@ public class classesUtility {
         return driver.findElement(locator).getText();
     }
 
+    //TODo :: Clear Text
+    public static void  clearTextFromEle(WebDriver driver , By locator)
+    {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(locator));
+         driver.findElement(locator).clear();
+    }
+
     //TODO :: Scrolling
     public static void scrollToEle(WebDriver driver , By locator)
     {
