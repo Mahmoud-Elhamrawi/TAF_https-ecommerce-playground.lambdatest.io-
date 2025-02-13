@@ -12,6 +12,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.text.DecimalFormat;
 import java.time.Duration;
 
 import static DriverFactory.DriverFactory.*;
@@ -30,7 +31,7 @@ public class TC05_CartPageTest {
         getDriver().get(DataUtility.readPropertyFile("ENV","HomePageUrl"));
     }
 
-public static int priceProd ;
+public static float priceProd=0;
     @Description("verify user able to edit cart quantities")
     @Test(priority = 1)
     public void validAddToCartTC()
@@ -43,7 +44,8 @@ public static int priceProd ;
         classesUtility.scrollToEle(getDriver(), new P08_ProductsList(getDriver()).gridLocator());
 
         LogUtility.info("product Price Before update : " + new P08_ProductsList(getDriver()).getPriceProd());
-        priceProd = Integer.parseInt(new P08_ProductsList(getDriver()).getPriceProd());
+
+        priceProd =Float.parseFloat(new P08_ProductsList(getDriver()).getPriceProd());  //as string
 
         //add to cart
          new P08_ProductsList(getDriver())
@@ -63,19 +65,22 @@ public static int priceProd ;
                 .openCartPage() ;
         Assert.assertEquals(classesUtility.assertOnUrl(getDriver()),DataUtility.readPropertyFile("ENV","CartPageLink"));
 
-       //146
+       //122.00
          //edit cart
         new P09_CartPage(getDriver())
                 .editQuantityOfProduct("3") ;
 
-        priceProd = Integer.parseInt(String.valueOf(priceProd)) * 3 ;
+        priceProd *= 3 ;
         LogUtility.info("product Price After update : " + priceProd );  //366
 
+        Assert.assertEquals(new P09_CartPage(getDriver()).getNewPriceProd(),new DecimalFormat("#.00").format(priceProd));
         Assert.assertTrue(new P09_CartPage(getDriver()).getAlertTextUpdated().trim().contains("Success: You have modified your shopping cart!"));
+     // checkout page
+        new P09_CartPage(getDriver()).goToCheckOut() ;
+        Assert.assertEquals(classesUtility.assertOnUrl(getDriver()),DataUtility.readPropertyFile("ENV","CheckOutLink"));
 
 
     }
-
 
 
 

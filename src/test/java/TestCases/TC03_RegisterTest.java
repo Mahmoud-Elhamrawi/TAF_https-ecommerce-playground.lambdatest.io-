@@ -10,6 +10,7 @@ import Listeners.ITestListener;
 import org.testng.annotations.*;
 
 import java.time.Duration;
+import java.time.Instant;
 
 import static DriverFactory.DriverFactory.*;
 @Listeners({IInvokedListener.class , ITestListener.class })
@@ -54,6 +55,9 @@ public class TC03_RegisterTest {
           Assert.assertEquals(classesUtility.assertOnUrl(getDriver()),DataUtility.readPropertyFile("ENV","HomePageUrl"));
 
     }
+
+
+
 
     @Test(dependsOnMethods = "validRegisterTC")
     public void logOutTC()

@@ -22,6 +22,8 @@ public class P09_CartPage {
     private final By alertText_Alert = By.xpath("//ol[@class=\"breadcrumb\"] //following::div[contains(@class,'alert-dismissible')]");
     private final By deleteText_Text = By.cssSelector("div[id=\"content\"] p");
     private final By contain_Btn = By.cssSelector("div[class=\"buttons\"]");
+    private final By newPrice = By.cssSelector("div[class=\"table-responsive\"] table tr  td:nth-of-type(6)");
+    private final By checkOut_btn = By.xpath("//div[@id=\"content\"]/div[2]/a[2]");
 
     public P09_CartPage editQuantityOfProduct(String q)
     {
@@ -54,6 +56,16 @@ public class P09_CartPage {
         return new P01_HomePage(driver);
     }
 
+    public String getNewPriceProd()
+    {
+        return classesUtility.getTextFromEle(driver,newPrice).replace("$","");
+    }
+
+    public P10_checkOutPage goToCheckOut()
+    {
+        classesUtility.clickEle(driver,checkOut_btn);
+        return new P10_checkOutPage(driver);
+    }
 
 
 
