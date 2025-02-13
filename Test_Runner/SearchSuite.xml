@@ -3,7 +3,7 @@
 <suite name="Feature_Based" verbose="1">
     <test name="Feature_Scenarios">
         <classes>
-            <class name="TestCases.TC04_SearchTest"/>
+            <class name="TestCases.TC05_CartPageTest"/>
         </classes>
     </test>
 
