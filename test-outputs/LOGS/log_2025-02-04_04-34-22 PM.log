@@ -1,0 +1,4 @@
+[INFO] 04-02-2025 16:34:22 [main] [Listeners.ITestListener.onStart(ITestListener.java:32)] - TEST START--TAF_ecommerce-playground.lambdatest.io
+[INFO] 04-02-2025 16:34:31 [main] [Listeners.ITestListener.onTestStart(ITestListener.java:15)] - TEST CASE START--validSearchTC
+[INFO] 04-02-2025 16:34:33 [main] [Listeners.ITestListener.onTestSuccess(ITestListener.java:20)] - TEST PASS--1
+[INFO] 04-02-2025 16:34:33 [main] [Listeners.ITestListener.onFinish(ITestListener.java:36)] - TEST FINISH--TAF_ecommerce-playground.lambdatest.io

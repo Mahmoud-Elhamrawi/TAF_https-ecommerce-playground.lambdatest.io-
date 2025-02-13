@@ -1,0 +1,7 @@
+[INFO] 13-02-2025 14:08:35 [main] [Listeners.ITestListener.onStart(ITestListener.java:32)] - TEST START--TAF_ecommerce-playground.lambdatest.io
+[INFO] 13-02-2025 14:08:42 [main] [Listeners.ITestListener.onTestStart(ITestListener.java:15)] - TEST CASE START--validRegisterTC
+[INFO] 13-02-2025 14:08:46 [main] [Listeners.IInvokedListener.afterInvocation(IInvokedListener.java:25)] - error------
+[ERROR] 13-02-2025 14:08:47 [main] [Listeners.ITestListener.onTestFailure(ITestListener.java:24)] - TEST FAIL--2
+[INFO] 13-02-2025 14:08:47 [main] [Listeners.ITestListener.onTestStart(ITestListener.java:15)] - TEST CASE START--logOutTC
+[INFO] 13-02-2025 14:08:47 [main] [Listeners.ITestListener.onTestSkipped(ITestListener.java:28)] - TEST SKIPPED3
+[INFO] 13-02-2025 14:08:47 [main] [Listeners.ITestListener.onFinish(ITestListener.java:36)] - TEST FINISH--TAF_ecommerce-playground.lambdatest.io

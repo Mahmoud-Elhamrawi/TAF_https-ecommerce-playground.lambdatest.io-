@@ -28,6 +28,8 @@
         <registerSuite>Test_Runner/RegisterSuite.xml</registerSuite>
         <SearchSuite>Test_Runner/SearchSuite.xml</SearchSuite>
         <CartSuite>Test_Runner/AddToCartSuite.xml</CartSuite>
+        <RegressionSuite>Test_Runner/RegressionSuite.xml/</RegressionSuite>
+
     </properties>
 
     <dependencies>
@@ -253,7 +255,35 @@
                 </plugins>
             </build>
         </profile>
+
+
+        <profile>
+            <id>Regression</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>${RegressionSuite}</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>io.qameta.allure</groupId>
+                        <artifactId>allure-maven</artifactId>
+                        <configuration>
+                            <reportVersion>${allure.version}</reportVersion>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
     </profiles>
+
 
 
 

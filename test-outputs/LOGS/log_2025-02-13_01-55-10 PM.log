@@ -1,0 +1,3 @@
+[INFO] 13-02-2025 13:55:10 [main] [TestCases.TC05_CartPageTest.validAddToCartTC(TC05_CartPageTest.java:45)] - product Price Before update : 122.00
+[INFO] 13-02-2025 13:55:11 [main] [TestCases.TC05_CartPageTest.validAddToCartTC(TC05_CartPageTest.java:59)] - 1
+[INFO] 13-02-2025 13:55:14 [main] [TestCases.TC05_CartPageTest.validAddToCartTC(TC05_CartPageTest.java:73)] - product Price After update : 366.0

@@ -1,0 +1,6 @@
+[INFO] 13-02-2025 16:43:00 [main] [Listeners.ITestListener.onStart(ITestListener.java:32)] - TEST START--Feature_Scenarios
+[INFO] 13-02-2025 16:43:29 [main] [Listeners.ITestListener.onTestStart(ITestListener.java:15)] - TEST CASE START--validRegisterTC
+[INFO] 13-02-2025 16:43:38 [main] [Listeners.ITestListener.onTestSuccess(ITestListener.java:20)] - TEST PASS--1
+[INFO] 13-02-2025 16:43:38 [main] [Listeners.ITestListener.onTestStart(ITestListener.java:15)] - TEST CASE START--logOutTC
+[INFO] 13-02-2025 16:43:41 [main] [Listeners.ITestListener.onTestSuccess(ITestListener.java:20)] - TEST PASS--1
+[INFO] 13-02-2025 16:43:42 [main] [Listeners.ITestListener.onFinish(ITestListener.java:36)] - TEST FINISH--Feature_Scenarios

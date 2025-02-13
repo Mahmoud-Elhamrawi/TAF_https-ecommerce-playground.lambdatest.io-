@@ -1,0 +1,5 @@
+[INFO] 04-02-2025 16:31:25 [main] [Listeners.ITestListener.onStart(ITestListener.java:32)] - TEST START--TAF_ecommerce-playground.lambdatest.io
+[INFO] 04-02-2025 16:31:37 [main] [Listeners.ITestListener.onTestStart(ITestListener.java:15)] - TEST CASE START--validSearchTC
+[INFO] 04-02-2025 16:31:49 [main] [Listeners.IInvokedListener.afterInvocation(IInvokedListener.java:25)] - error------
+[ERROR] 04-02-2025 16:31:49 [main] [Listeners.ITestListener.onTestFailure(ITestListener.java:24)] - TEST FAIL--2
+[INFO] 04-02-2025 16:31:50 [main] [Listeners.ITestListener.onFinish(ITestListener.java:36)] - TEST FINISH--TAF_ecommerce-playground.lambdatest.io

@@ -1,0 +1,6 @@
+[INFO] 13-02-2025 14:10:03 [main] [Listeners.ITestListener.onStart(ITestListener.java:32)] - TEST START--TAF_ecommerce-playground.lambdatest.io
+[INFO] 13-02-2025 14:10:09 [main] [Listeners.ITestListener.onTestStart(ITestListener.java:15)] - TEST CASE START--validRegisterTC
+[INFO] 13-02-2025 14:10:17 [main] [Listeners.ITestListener.onTestSuccess(ITestListener.java:20)] - TEST PASS--1
+[INFO] 13-02-2025 14:10:17 [main] [Listeners.ITestListener.onTestStart(ITestListener.java:15)] - TEST CASE START--logOutTC
+[INFO] 13-02-2025 14:10:20 [main] [Listeners.ITestListener.onTestSuccess(ITestListener.java:20)] - TEST PASS--1
+[INFO] 13-02-2025 14:10:20 [main] [Listeners.ITestListener.onFinish(ITestListener.java:36)] - TEST FINISH--TAF_ecommerce-playground.lambdatest.io
