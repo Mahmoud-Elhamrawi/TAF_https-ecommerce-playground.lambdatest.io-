@@ -10,17 +10,17 @@ import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import java.text.DecimalFormat;
 import java.time.Duration;
-
 import static DriverFactory.DriverFactory.*;
-import static java.lang.Integer.*;
+import Listeners.IInvokedListener;
+import Listeners.ITestListener;
+
+@Listeners({IInvokedListener.class , ITestListener.class })
 
 public class TC05_CartPageTest {
-
-
 
 
     @BeforeMethod
