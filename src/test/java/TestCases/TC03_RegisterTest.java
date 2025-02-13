@@ -38,7 +38,8 @@ public class TC03_RegisterTest {
                  .typingInfoRegistration(
                 DataUtility.readJsonFile("registerData","firstName"),
                 DataUtility.readJsonFile("registerData","lastName"),
-                DataUtility.readJsonFile("registerData","email"),
+               "test"+Instant.now().toEpochMilli()+"@gmail.com"  ,
+                //DataUtility.readJsonFile("registerData","email"),
                 DataUtility.readJsonFile("registerData","phone"),
                 DataUtility.readJsonFile("registerData","password"),
                 DataUtility.readJsonFile("registerData","cPasswrod")
