@@ -133,8 +133,9 @@
                     <execution>
                         <phase>test</phase>
                         <goals>
-                            <goal>serve</goal>
+                            <goal>report</goal>
                         </goals>
+
                     </execution>
                 </executions>
             <configuration>
